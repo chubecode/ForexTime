@@ -1,7 +1,8 @@
-package it.chutien.forextime
+package it.chutien.forextime.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import it.chutien.forextime.R
 
 class MainActivity : AppCompatActivity() {
 
