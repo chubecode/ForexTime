@@ -16,14 +16,6 @@ abstract class BaseViewModel  : ViewModel(){
 
     val isLoading = MutableLiveData<Boolean>().apply { value = false }
 
-    val isRefreshing = MutableLiveData<Boolean>().apply { value = false }
-
-    val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
-        if (isLoading.value == true || isRefreshing.value == true) return@OnRefreshListener
-        isRefreshing.value = true
-        loadData(-1)
-    }
-
     val errorMessage = MutableLiveData<String>()
 
     //rx
@@ -37,7 +29,6 @@ abstract class BaseViewModel  : ViewModel(){
 
     open fun onLoadSuccess(){
         isLoading.value = false
-        isRefreshing.value = false
     }
 
     open fun onLoadFail(throwable: Throwable) {
@@ -49,7 +40,7 @@ abstract class BaseViewModel  : ViewModel(){
                         else -> {
                             when (throwable.cause) {
                                 is UnknownHostException -> {
-                                    errorMessage.value = "No Internet Connection"
+                                    errorMessage.value =  "Unknown Host "+throwable.message
                                 }
                                 is SocketTimeoutException -> {
                                     errorMessage.value = "Connect timeout, please retry"

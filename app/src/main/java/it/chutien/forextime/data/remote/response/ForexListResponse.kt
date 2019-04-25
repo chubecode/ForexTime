@@ -1,6 +1,6 @@
 package it.chutien.forextime.data.remote.response
 
-import it.chutien.forextime.data.model.Forex.ForexItem
+import it.chutien.forextime.data.model.forex.ForexItem
 
 /**
  * Created by ChuTien on ${1/25/2017}.

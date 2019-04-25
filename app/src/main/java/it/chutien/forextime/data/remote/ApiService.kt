@@ -9,7 +9,7 @@ import retrofit2.http.QueryMap
  * Created by ChuTien on ${1/25/2017}.
  */
 interface ApiService {
-    @GET("chubecode/forexlist")
+    @GET("/forexs")
     fun getForexList(@QueryMap hashMap: HashMap<String, String> = HashMap()): Single<ForexListResponse>
 }
 

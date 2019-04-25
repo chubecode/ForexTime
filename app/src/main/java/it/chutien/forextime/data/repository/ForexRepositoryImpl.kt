@@ -5,7 +5,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import it.chutien.forextime.data.local.dao.ForexItemDao
-import it.chutien.forextime.data.model.Forex.ForexItem
+import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.data.remote.ApiService
 import it.chutien.forextime.data.remote.response.ForexListResponse
 import kotlinx.coroutines.GlobalScope

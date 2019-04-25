@@ -2,7 +2,7 @@ package it.chutien.forextime.data.local.dao
 
 import androidx.room.*
 import io.reactivex.Maybe
-import it.chutien.forextime.data.model.Forex.ForexItem
+import it.chutien.forextime.data.model.forex.ForexItem
 
 /**
  * Created by ChuTien on ${1/25/2017}.

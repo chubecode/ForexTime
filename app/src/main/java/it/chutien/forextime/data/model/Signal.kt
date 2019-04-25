@@ -15,6 +15,7 @@ class Signal(
     val forexEnd: String,
     val type: String,
     val price: Double,
+    val swapFee: Double,
     val stopLoss: Double,
     val takeProfit1: Double,
     val takeProfit2: Double,

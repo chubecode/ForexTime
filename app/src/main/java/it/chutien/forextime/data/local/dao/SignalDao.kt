@@ -15,13 +15,13 @@ interface SignalDao {
     fun getSignalList(): Maybe<List<Signal>>
 
     @Query("SELECT * FROM signals WHERE (forexFirst=:forexFirst or '' =:forexFirst) AND (forexEnd=:forexEnd or '' =:forexEnd) AND (type =:type or ''=:type) AND (author =:author or '' =:author) ORDER BY id DESC LIMIT :number")
-    fun getSignalBy(
+    fun getSignalsBy(
         forexFirst: String = "",
         forexEnd: String = "",
         type: String = "",
         number: Int = -1,
         author: String = ""
-    )
+    ) : Maybe<List<Signal>>
 
 
 }

@@ -1,7 +1,7 @@
 package it.chutien.forextime.data.repository
 
 import io.reactivex.Single
-import it.chutien.forextime.data.model.Forex.ForexItem
+import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.data.remote.response.ForexListResponse
 
 /**

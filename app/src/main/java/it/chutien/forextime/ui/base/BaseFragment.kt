@@ -12,7 +12,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import it.chutien.forextime.R
 import it.chutien.forextime.utils.DialogUtils
@@ -21,28 +20,28 @@ import it.chutien.forextime.utils.DialogUtils.showMessage
 /**
  * Created by ChuTien on ${1/25/2017}.
  */
-abstract class BaseFragment<ViewBinding : ViewDataBinding,ViewModel : BaseViewModel> : Fragment(){
+abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewModel> : Fragment() {
 
     abstract val bindingVariable: Int
 
     lateinit var viewBinding: ViewBinding
 
-    abstract val  viewModel: ViewModel
+    abstract val viewModel: ViewModel
 
     @get:LayoutRes
-    abstract val  layoutId: Int
+    abstract val layoutId: Int
 
     var mAlertDialog: AlertDialog? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewBinding = DataBindingUtil.inflate(inflater,layoutId,container,false)
+        viewBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding.apply {
-            setVariable(bindingVariable,viewModel)
+            setVariable(bindingVariable, viewModel)
             root.isClickable = true
             lifecycleOwner = this@BaseFragment
             executePendingBindings()
@@ -51,7 +50,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding,ViewModel : BaseViewMo
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mAlertDialog = DialogUtils.createLoadingDialog(context,false)
+        mAlertDialog = DialogUtils.createLoadingDialog(context, false)
         viewModel.apply {
             isLoading.observe(this@BaseFragment, Observer {
                 handleShowLoading(it)

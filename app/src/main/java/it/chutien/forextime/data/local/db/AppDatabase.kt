@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import it.chutien.forextime.data.local.dao.ForexItemDao
 import it.chutien.forextime.data.local.dao.SignalDao
-import it.chutien.forextime.data.model.Forex.ForexItem
+import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.data.model.Signal
 
 /**
