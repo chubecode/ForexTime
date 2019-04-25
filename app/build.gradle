@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     dataBinding {
@@ -38,6 +40,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
 
+    //Databinding
+    kapt "com.android.databinding:compiler:3.4.0"
+
     //Stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
@@ -70,3 +75,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
+kapt {
+    generateStubs = true
+}
+
