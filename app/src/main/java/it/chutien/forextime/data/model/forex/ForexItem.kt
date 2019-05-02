@@ -11,5 +11,6 @@ class ForexItem (
     @PrimaryKey(autoGenerate = false)
     val name: String,
     val price: Double,
-    val time: Long
+    val time: Long,
+    val isUpTrend: Boolean
 )

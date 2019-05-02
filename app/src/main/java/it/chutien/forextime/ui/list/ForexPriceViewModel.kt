@@ -23,7 +23,18 @@ class ForexPriceViewModel constructor(
                 forexRepository.insertForexListInDb(it.results ?: listOf())
                 onLoadSuccess()
             }, {
-                onLoadFail(it)
+                val listTest = arrayListOf<ForexItem>()
+                var item = ForexItem("USD",1.12,9999,true)
+                var item2 = ForexItem("GBP",0.92,1111,false)
+                listTest.add(item)
+                listTest.add(item2)
+                listTest.add(item)
+                listTest.add(item2)
+                listTest.add(item2)
+                listTest.add(item)
+                listItem.value = listTest
+                forexRepository.insertForexListInDb(listTest)
+//                onLoadFail(it)
             })
     }
 
