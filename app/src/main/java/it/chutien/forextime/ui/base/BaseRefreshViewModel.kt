@@ -16,4 +16,15 @@ abstract class BaseRefreshViewModel<Item>:BaseViewModel(){
         isRefreshing.value = true
         loadData(-1)
     }
+    fun onLoadSuccess() {
+        isLoading.value = false
+        isRefreshing.value = false
+    }
+
+
+    override fun onLoadFail(e: Throwable) {
+        super.onLoadFail(e)
+        isLoading.value = false
+        isRefreshing.value = false
+    }
 }

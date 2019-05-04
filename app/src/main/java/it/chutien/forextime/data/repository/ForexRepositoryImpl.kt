@@ -11,6 +11,7 @@ import it.chutien.forextime.data.remote.response.ForexListResponse
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
+
 /**
  * Created by ChuTien on ${1/25/2017}.
  */
@@ -20,6 +21,7 @@ class ForexRepositoryImpl constructor(
 ) : ForexRepository{
 
     override fun getForexList(hashMap: HashMap<String, String>): Single<ForexListResponse> {
+
         return apiService.getForexList(hashMap)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

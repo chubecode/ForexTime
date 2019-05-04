@@ -27,9 +27,6 @@ abstract class BaseViewModel  : ViewModel(){
 
     abstract fun loadData(page: Int)
 
-    open fun onLoadSuccess(){
-        isLoading.value = false
-    }
 
     open fun onLoadFail(throwable: Throwable) {
         try {

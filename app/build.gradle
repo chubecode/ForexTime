@@ -20,8 +20,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "BASE_URL", "\"https://heyktortaone.herokuapp.com\"")
-        buildConfigField("String", "API_KEY", "\"chubecode\"")
+        buildConfigField("String", "BASE_URL", "\"http://data.fixer.io/api/\"")
+        buildConfigField("String", "API_KEY", "\"33b7a261560056619bb1fb1bcf653b8b\"")
     }
     buildTypes {
         release {
