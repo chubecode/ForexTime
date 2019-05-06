@@ -18,6 +18,7 @@ android {
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "BASE_URL", "\"http://data.fixer.io/api/\"")
@@ -75,6 +76,9 @@ dependencies {
     implementation 'org.koin:koin-android-viewmodel:1.0.2'
     //Multidex
     implementation 'com.android.support:multidex:1.0.3'
+
+    //MP Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
