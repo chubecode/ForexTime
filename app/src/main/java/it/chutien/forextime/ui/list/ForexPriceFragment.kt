@@ -18,6 +18,8 @@ import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.ui.base.BaseRefreshFragment
 import kotlinx.android.synthetic.main.forex_price_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import it.chutien.forextime.utils.DialogUtils
+import it.chutien.forextime.utils.DialogUtils.showChart
 
 class ForexPriceFragment : BaseRefreshFragment<ViewDataBinding,ForexPriceViewModel,ForexItem>() {
 
@@ -44,6 +46,7 @@ class ForexPriceFragment : BaseRefreshFragment<ViewDataBinding,ForexPriceViewMod
         Log.d(TAG,"Fragment Start: onActivityCreated")
         val adapter = ForexPriceAdapter {
             Toast.makeText(context, "${it.name} has price is ${it.price} at ${it.time}", Toast.LENGTH_SHORT).show()
+            showChart(context,it.name.replace("/",""))
         }
 
         viewBinding.apply {

@@ -1,12 +1,34 @@
 package it.chutien.forextime.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import it.chutien.forextime.R
 
 object DialogUtils {
+
+
+    @SuppressLint("SetJavaScriptEnabled")
+    fun showChart(context: Context?, symbol:String) {
+        if (context == null) return
+        val dialogChart =  AlertDialog.Builder(context)
+            .setView(R.layout.dialog_chart)
+            .create().apply {
+                setCancelable(true)
+                setCanceledOnTouchOutside(true)
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            }
+
+        dialogChart.show()
+        val webChart = dialogChart.findViewById<WebView>(R.id.web_chart)
+        if (webChart != null) {
+            webChart.settings.javaScriptEnabled = true
+            webChart.loadUrl("https://heyktortaone.herokuapp.com/chart?symbol=${symbol}")
+        }
+    }
 
     fun createLoadingDialog(
         context: Context?, cancelable: Boolean = false,
