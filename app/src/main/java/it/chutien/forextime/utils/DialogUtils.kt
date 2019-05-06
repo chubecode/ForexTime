@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
+import android.view.View
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import it.chutien.forextime.R
@@ -25,6 +28,12 @@ object DialogUtils {
         dialogChart.show()
         val webChart = dialogChart.findViewById<WebView>(R.id.web_chart)
         if (webChart != null) {
+            webChart.webChromeClient = WebChromeClient()
+            if(Build.VERSION.SDK_INT < 19){
+                webChart.setLayerType(View.LAYER_TYPE_HARDWARE,null)
+            }else{
+                webChart.setLayerType(View.LAYER_TYPE_SOFTWARE,null)
+            }
             webChart.settings.javaScriptEnabled = true
             webChart.loadUrl("https://heyktortaone.herokuapp.com/chart?symbol=${symbol}")
         }
