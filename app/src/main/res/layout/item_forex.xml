@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:bind="http://schemas.android.com/tools"
 >
     <data>
+        <import type="it.chutien.forextime.utils.BindingUtils"/>
         <variable
                 name="item"
                 type="it.chutien.forextime.data.model.forex.ForexItem"/>
@@ -166,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|right"
-                        android:text="3h ago"
+                        android:text="@{BindingUtils.toTimeAgo(item.time)}"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/grey_40"/>
 

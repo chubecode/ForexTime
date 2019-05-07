@@ -5,8 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import it.chutien.forextime.data.local.dao.ForexItemDao
 import it.chutien.forextime.data.local.dao.SignalDao
-import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.data.model.Signal
+import it.chutien.forextime.data.model.forex.ForexItem
 
 /**
  * Created by ChuTien on ${1/25/2017}.

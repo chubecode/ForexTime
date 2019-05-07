@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.View
 import android.webkit.WebChromeClient
+import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import it.chutien.forextime.R
@@ -34,7 +35,16 @@ object DialogUtils {
             }else{
                 webChart.setLayerType(View.LAYER_TYPE_SOFTWARE,null)
             }
-            webChart.settings.javaScriptEnabled = true
+            val setting = webChart.settings
+            setting.javaScriptEnabled = true
+            setting.loadWithOverviewMode = true
+            setting.useWideViewPort = true
+            setting.setSupportZoom(true)
+            setting.builtInZoomControls = false
+            setting.layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
+            setting.cacheMode = WebSettings.LOAD_NO_CACHE
+            setting.domStorageEnabled = true
+
             webChart.loadUrl("https://heyktortaone.herokuapp.com/chart?symbol=${symbol}")
         }
     }

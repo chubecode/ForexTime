@@ -59,6 +59,10 @@ abstract class BaseRecyclerAdapter<Item,ViewBinding: ViewDataBinding>(
      */
     protected open fun bindView(binding: ViewBinding,item: Item){}
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
 }
 open class BaseViewHolder<ViewBinding: ViewDataBinding> constructor(
     val binding: ViewBinding

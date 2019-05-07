@@ -7,21 +7,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.chutien.forextime.BR
 import it.chutien.forextime.R
 import it.chutien.forextime.data.model.forex.ForexItem
 import it.chutien.forextime.ui.base.BaseRefreshFragment
+import it.chutien.forextime.utils.DialogUtils.showChart
+import it.chutien.forextime.utils.PreCachingLayoutManager
 import kotlinx.android.synthetic.main.forex_price_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import it.chutien.forextime.utils.DialogUtils
-import it.chutien.forextime.utils.DialogUtils.showChart
 
-class ForexPriceFragment : BaseRefreshFragment<ViewDataBinding,ForexPriceViewModel,ForexItem>() {
+class ForexPriceFragment : BaseRefreshFragment<ViewDataBinding,ForexPriceViewModel, ForexItem>() {
 
     companion object {
         const val TAG = "ForexPriceFragment"
@@ -45,15 +43,18 @@ class ForexPriceFragment : BaseRefreshFragment<ViewDataBinding,ForexPriceViewMod
         super.onActivityCreated(savedInstanceState)
         Log.d(TAG,"Fragment Start: onActivityCreated")
         val adapter = ForexPriceAdapter {
-            Toast.makeText(context, "${it.name} has price is ${it.price} at ${it.time}", Toast.LENGTH_SHORT).show()
             showChart(context,it.name.replace("/",""))
         }
+        adapter.setHasStableIds(true) //improve performance of recycler view
 
         viewBinding.apply {
             root.setBackgroundColor(Color.WHITE)
             recycler_view.apply {
-                layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+                layoutManager = PreCachingLayoutManager(context,RecyclerView.VERTICAL,false)
+                setHasFixedSize(true)
+                setItemViewCacheSize(10)
                 this.adapter = adapter
+
             }
         }
         viewModel.apply {

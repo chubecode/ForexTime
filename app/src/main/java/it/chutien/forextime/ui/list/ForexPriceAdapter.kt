@@ -39,4 +39,8 @@ class ForexPriceAdapter(
     override fun bindView(binding: ItemForexBinding, item: ForexItem) {
         binding.apply { this.item = item }
     }
+    override fun getItemId(position: Int): Long {
+        return getItem(position).hashCode().toLong()
+    }
+
 }
