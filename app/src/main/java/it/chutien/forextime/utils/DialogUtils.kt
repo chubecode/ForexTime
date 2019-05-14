@@ -45,7 +45,7 @@ object DialogUtils {
             setting.cacheMode = WebSettings.LOAD_NO_CACHE
             setting.domStorageEnabled = true
 
-            webChart.loadUrl("https://heyktortaone.herokuapp.com/chart?symbol=${symbol}")
+            webChart.loadUrl("https://chubecode-api.herokuapp.com/chart?symbol=${symbol}")
         }
     }
 
